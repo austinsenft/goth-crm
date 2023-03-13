@@ -1,8 +1,19 @@
 import React from 'react'
+import {  Box, Card} from 'dracula-ui'
 
-const ProgressDisplay = () => {
+const ProgressDisplay = ({ progress }) => {
     return (
-        <div>ProgressDisplay</div>
+
+        <Box color="pinkPurple" className="progress-display">
+            <Card
+                
+                color="purpleCyan" m="sm"
+                className="progress-indicator"
+                style={{ width: progress + '%'}}
+                
+            >
+            </Card>
+        </Box>
     )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from 'dracula-ui'
+import { Box, Text } from 'dracula-ui'
 
 const StatusDisplay = ({ status }) => {
 
@@ -23,7 +23,7 @@ const StatusDisplay = ({ status }) => {
 
     return (
         <Box className="status-display" style={{ backgroundColor: getColor(status)}} >
-            {status} 
+            <Text size="xs" color="black">{status} </Text>
         </Box>
     )
 }

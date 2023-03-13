@@ -43,6 +43,14 @@ const Dashboard = () => {
         }
     ]
 
+    const colors = [
+        'rgb(255,179,186',
+        'rgb(255,223,186)', 
+        'rgb(255,255,186', 
+        'rgb(186,255,281)', 
+        'rgb(186,255,255)'
+    ]
+
     // returning unique categories from Data. Q1, Q2, etc
     const uniqueCategories = [
         ...new Set(tickets?.map(({ category}) => category))
@@ -51,7 +59,7 @@ const Dashboard = () => {
 
     return (
         <Box color="black" className="dashboard">
-            <Anchor href="#" color="purple" hoverColor="yellowPink" mb="sm">
+            <Anchor href="#" color="purple" hoverColor="yellowPink" >
                 My Projects
             </Anchor>
             <Box className={"ticket-container"}>
@@ -61,7 +69,8 @@ const Dashboard = () => {
                         {tickets.filter(ticket => ticket.category === uniqueCategory)
                             .map((filteredTicket, ticketIndex) => (
                                 <TicketCard
-                                    color={filteredTicket.color}
+                                    // id={_index} 
+                                    color={colors[categoryIndex] || colors[0]}
                                     ticket={filteredTicket}
                                 />
                             ))

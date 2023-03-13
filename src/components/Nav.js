@@ -7,7 +7,7 @@ const Nav = () => {
     const navigate = useNavigate()
 
     return (
-        <Box className="nav" rounded="lg">
+        <Box color="pinkPurple" className="nav" rounded="lg">
             <Box mr="xs" mt="xs">
                 <Avatar
                     title="Count Dracula"
