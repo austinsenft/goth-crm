@@ -3,7 +3,7 @@ import {  Box } from 'dracula-ui'
 
 const PriorityDisplay = ({ priority }) => {
     return (
-        <Box color="pinkPurple" className="priority-display">
+        <Box color="blackSecondary"  className="priority-display">
             <Box className="star-container"> 
                 <h3 style={{color: priority >=1 ? 'rgb(253, 253, 150)' : '' }}>⭑</h3>
 

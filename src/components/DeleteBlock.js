@@ -8,7 +8,7 @@ const DeleteBlock = () => {
     }
 
     return (
-        <Box className="delete-block">
+        <Box color="blackSecondary" className="delete-block">
             <Box className="delete-icon" onClick={deleteTicket}>
                 Ⓧ
             </Box>

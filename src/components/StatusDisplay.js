@@ -22,8 +22,8 @@ const StatusDisplay = ({ status }) => {
     }
 
     return (
-        <Box className="status-display" style={{ backgroundColor: getColor(status)}} >
-            <Text size="xs" color="black">{status} </Text>
+        <Box className="status-display" color="blackSecondary" >
+            <Text style={{ color: getColor(status)}}> {status} </Text>
         </Box>
     )
 }

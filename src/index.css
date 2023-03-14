@@ -40,53 +40,53 @@ body {
 
 /* ------Dashboard------ */
 .dashboard {
-    padding: 30px; 
-    width: 100%; 
+    padding: 30px;
+    width: 100%;
 }
 
 .dashboard .ticket-container {
-    height: 80vh; 
-    overflow: scroll; 
+    height: 80vh;
+    overflow: scroll;
 }
 
 
 /* ------TicketCard------ */
 .ticket-card {
-    display: flex; 
-    width: 100%; 
+    display: flex;
+    width: 100%;
 }
 
 .ticket-card #link {
-    display: flex; 
-    width: 100%; 
+    display: flex;
+    width: 100%;
 
 }
 
-.ticket-card #link > * {
-    background-color: white; 
-    margin: 2px; 
-    padding: 30px; 
-    width: 100%; 
-    display: flex; 
+.ticket-card #link>* {
+    /* background-color: white;  */
+    margin: 2px;
+    padding: 30px;
+    width: 100%;
+    display: flex;
     align-items: center;
 }
 
 .ticket-card .ticket-color {
-    width: 15px; 
-    margin: 2px; 
+    width: 15px;
+    margin: 2px;
 }
 
 .ticket-card .avatar-container {
-    display: flex; 
+    display: flex;
     justify-content: center;
-    width: 80px; 
+    width: 80px;
 }
 
-.ticket-card img{
+.ticket-card img {
     box-sizing: border-box;
     border-radius: var(--rounded-full);
     border-style: solid;
-    border-color: black; 
+    border-color: black;
     border-width: 1px;
     text-transform: uppercase;
     height: 4.4rem;
@@ -97,29 +97,29 @@ body {
 }
 
 .ticket-card .img-container {
-    display: flex; 
+    display: flex;
     justify-content: center;
-    width: 100%; 
+    width: 100%;
 }
 
 .ticket-card .status-display {
-    display: flex; 
+    display: flex;
     justify-content: center;
 }
 
 .ticket-card .priority-display {
-    display: flex; 
+    display: flex;
     justify-content: center;
 }
 
 .ticket-card .priority-display .star-container {
-    display: flex; 
+    display: flex;
     justify-content: center;
 }
 
 .ticket-card .priority-display .star-container h3 {
-    margin: 7px; 
-    padding: 0; 
+    margin: 7px;
+    padding: 0;
 }
 
 .ticket-card .progress-display {
@@ -127,29 +127,29 @@ body {
 }
 
 .ticket-card .progress-indicator {
-    width: 100%; 
-    height: 30px; 
+    width: 100%;
+    height: 30px;
     /* background-color: rgb(158, 158, 158); */
     border-style: solid;
     border-color: black;
     border-radius: 15px;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .ticket-card .delete-block {
-    background-color: rgb(211,211,211);
-    width: 40px; 
-    margin: 2px; 
+    /* background-color: rgb(211,211,211); */
+    width: 40px;
+    margin: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .ticket-card .delete-block .delete-icon {
-    width: 20px; 
-    height: 20px; 
-    border-radius: 10px; 
-    background-color: rgb(61,61,62);
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(61, 61, 62);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,6 +157,86 @@ body {
 }
 
 
+
+
+
+
+
+
+/* ------ Ticket Page ------  */
+
+.ticket {
+    padding: 30px;
+    width: 100%;
+}
+
+.ticket .ticket-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.ticket form {
+    display: flex;
+}
+
+.ticket form section {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 500px;
+}
+
+.ticket form label {
+    margin: 20px 0 0 0;
+}
+
+.ticket form select input {
+    /* padding: 10px;  */
+    font-size: 15px;
+    border-radius: 10px;
+    /* border: 1.5px solid rgb(218, 218, 218); */
+    margin: 5px;
+}
+
+.ticket form Select {
+    border: 1px solid;
+}
+
+.ticket .multiple-input-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.ticket .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+}
 
 
 

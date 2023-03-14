@@ -6,8 +6,8 @@ import blankAvatar from '../images/avatar.png'
 
 const AvatarDisplay = ({ ticket }) => {
     return (
-        <Box color="pinkPurple" className="avatar-container">
-            <Box  className="img-container">
+        <Box color="blackSecondary"  className="avatar-container">
+            <Box className="img-container">
                 <img src={ticket.avatar ? ticket.avatar : blankAvatar}
                     alt={'photo of' + ticket.owner}
                 />

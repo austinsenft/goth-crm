@@ -7,8 +7,8 @@ const Nav = () => {
     const navigate = useNavigate()
 
     return (
-        <Box color="pinkPurple" className="nav" rounded="lg">
-            <Box mr="xs" mt="xs">
+        <Box color="blackSecondary" className="nav" rounded="sm">
+            <Box mr="xs" ml="xs" mt="lg">
                 <Avatar
                     title="Count Dracula"
                     src="https://ui.draculatheme.com/static/images/avatar.png"
@@ -16,10 +16,10 @@ const Nav = () => {
             </Box>
             <Box>
                 <Box mt="lg">
-                    <Button m="xs" size="md" color="cyan" onClick={() => navigate('/ticket')}> + </Button>
+                    <Button m="xs" size="md" color="cyanGreen" onClick={() => navigate('/ticket')}> + </Button>
                 </Box>
                 <Box mt="xs" mb="lg">
-                    <Button m="xs" size="md" color="cyan" onClick={() => navigate('/')}> - </Button>
+                    <Button m="xs" size="md" color="cyanGreen" onClick={() => navigate('/')}> - </Button>
                 </Box>
             </Box>
         </Box>

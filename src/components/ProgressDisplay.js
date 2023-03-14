@@ -4,10 +4,10 @@ import {  Box, Card} from 'dracula-ui'
 const ProgressDisplay = ({ progress }) => {
     return (
 
-        <Box color="pinkPurple" className="progress-display">
+        <Box color="blackSecondary"  className="progress-display">
             <Card
                 
-                color="purpleCyan" m="sm"
+                color="pinkPurple" m="sm"
                 className="progress-indicator"
                 style={{ width: progress + '%'}}
                 
