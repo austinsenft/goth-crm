@@ -9,6 +9,7 @@
 
 body {
     background-color: #101115;
+    /* background-color: rgb(46, 46, 46); */
 }
 
 #link {
@@ -19,7 +20,7 @@ body {
 /* ------ Nav ------  */
 .nav {
     height: 100vh;
-    background-color: purple;
+    /* background-color: purple;  */
     color: rgb(255, 255, 255);
     text-align: center;
     display: flex;
@@ -208,7 +209,7 @@ body {
     justify-content: space-evenly;
 }
 
-.ticket .slider {
+/* .ticket .slider {
     -webkit-appearance: none;
     width: 100%;
     height: 15px;
@@ -218,15 +219,16 @@ body {
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
-}
+} */
 
-.slider::-webkit-slider-thumb {
+/* .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #04AA6D;
+    background: rgb(253,128,192);
+    background: rgb(243, 171, 184);
     cursor: pointer;
 }
 
@@ -234,9 +236,8 @@ body {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #04AA6D;
-    cursor: pointer;
-}
+    /* background: #04AA6D;  */
+
 
 
 

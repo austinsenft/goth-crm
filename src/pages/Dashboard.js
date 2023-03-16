@@ -1,47 +1,31 @@
 import React from 'react'
+import { useState, useEffect, useContext } from 'react'
 import TicketCard from '../components/TicketCard'
 import { Anchor, Box, Text, Divider } from 'dracula-ui'
+import axios from 'axios'
 
 const Dashboard = () => {
 
-    const tickets = [
-        {
-            category: 'Q1 2023',
-            color: 'red',
-            title: 'NFT Safety Video',
-            owner: 'Austin Senft',
-            avatar: 'https://ui.draculatheme.com/static/images/avatar.png',
-            status: 'done',
-            priority: 5,
-            progress: 40,
-            description: 'Make video showing how to work with NFTs safely.',
-            timestamp: '2023-03-11T07:36:17+0000'
-        },
-        {
-            category: 'Q1 2023',
-            color: 'red',
-            title: 'Build and sell ai model',
-            owner: 'Austin Senft',
-            avatar: 'https://ui.draculatheme.com/static/images/avatar.png',
-            status: 'working on it',
-            priority: 2,
-            progress: 70,
-            description: 'Make video about AI',
-            timestamp: '2023-03-13T07:36:17+0000'
-        },
-        {
-            category: 'Q2 2023',
-            color: 'blue',
-            title: 'Build a bot',
-            owner: 'Austin Senft',
-            avatar: 'https://ui.draculatheme.com/static/images/avatar.png',
-            status: 'working on it',
-            priority: 3,
-            progress: 10,
-            description: 'Make video about making a bot',
-            timestamp: '2023-03-15T07:36:17+0000'
-        }
-    ]
+    const [tickets, setTickets] = useState(null)
+
+    useEffect( () => {
+
+        const getResponse = async () => {
+            const response = await axios.get('http://localhost:8000/tickets')
+            const dataObject = response.data.data
+
+            const arrayOfKeys = Object.keys(dataObject)
+            const arrayOfData = Object.keys(dataObject).map((key) => dataObject[key])
+            const formattedArray = [] 
+            arrayOfKeys.forEach((key, index) => {
+                const formattedData = { ...arrayOfData[index]}
+                formattedData['documentId'] = key 
+                formattedArray.push(formattedData)
+            })
+            setTickets(formattedArray).catch(console.error)
+        } 
+        getResponse()
+    }, [])
 
     const colors = [
         'rgb(255,179,186)',
@@ -59,7 +43,7 @@ const Dashboard = () => {
 
     return (
         <Box color="black" className="dashboard">
-            <Anchor href="#" color="purple" hoverColor="cyanGreen" >
+            <Anchor href="#" color="pinkPurple" hoverColor="cyanGreen" >
                 My Projects
             </Anchor>
             <Box mb="sm" mt="sm">

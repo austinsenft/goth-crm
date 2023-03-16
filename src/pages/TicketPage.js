@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box, Anchor, Input, Text, Divider, Select, Radio } from 'dracula-ui'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const TicketPage = () => {
     const [formData, setFormData] = useState({
@@ -8,11 +10,28 @@ const TicketPage = () => {
         progress: 0,
         timestamp: new Date().toISOString()
     })
-    const editMode = true
+    const editMode = false 
+    // const editMode = true
 
-    const handleSubmit = () => {
-        console.log("submitted")
+    const navigate = useNavigate()
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        if (!editMode) {
+            const response = await axios.post('http://localhost:8000/tickets', {
+                formData
+            })
+            const success = response.status === 200
+            if (success) {
+                navigate('/')
+            }
+        }
     }
+
+
+
+
 
     const handleChange = (e) => {
         const value = e.target.value
@@ -32,13 +51,13 @@ const TicketPage = () => {
     return (
         <Box className="ticket">
             <Anchor
-                href="#" color="cyanGreen"
-                hoverColor="yellowPink" mb="sm"
+                href="#" color="pinkPurple"
+                hoverColor="cyanGreen" mb="sm"
             >
                 {editMode ? 'Update your ticket' : 'Create a ticket'}
             </Anchor>
             <Box mb="sm" mt="sm">
-                <Divider color="green" />
+                <Divider color="purple" />
             </Box>
             <Box ml="sm" rounded="lg" color="blackSecondary">
 
@@ -49,7 +68,7 @@ const TicketPage = () => {
                         <section>
                             <Text mb="xs" htmlFor="title">Title</Text>
                             <Input
-                                color="green"
+                                color="white"
                                 variant="outline"
                                 borderSize="sm"
                                 size="sm"
@@ -65,7 +84,7 @@ const TicketPage = () => {
 
                             <Text mb="xs" htmlFor="description">Description</Text>
                             <Input
-                                color="green"
+                                color="white"
                                 variant="outline"
                                 borderSize="sm"
                                 size="sm"
@@ -81,7 +100,7 @@ const TicketPage = () => {
 
                             <Text mb="xs">Category</Text>
                             <Select
-                                variant="outline" color="green" 
+                                variant="outline" color="white" 
                                 mb="sm"
                                 name="category"
                                 value={formData.category}
@@ -96,7 +115,7 @@ const TicketPage = () => {
 
                             <Text mb="xs" htmlFor="new-category">New Category</Text>
                             <Input
-                                color="green"
+                                color="white"
                                 variant="outline"
                                 borderSize="sm"
                                 size="sm"
@@ -114,57 +133,57 @@ const TicketPage = () => {
                             <Box mb="sm" className="multiple-input-container">
                                 <Text htmlFor="priority-1">1</Text>
                                 <Radio
-                                    color="green"
+                                    color="white"
                                     id="priority-1"
                                     name="priority"
                                     type="radio"
                                     onChange={handleChange}
                                     value={1}
-                                    checked={formData.priority === 1}
+                                    checked={formData.priority == 1}
                                 />
 
                                 <Text htmlFor="priority-2">2</Text>
                                 <Radio
-                                    color="green"
+                                    color="white"
                                     id="priority-2"
                                     name="priority"
                                     type="radio"
                                     onChange={handleChange}
                                     value={2}
-                                    checked={formData.priority === 2}
+                                    checked={formData.priority == 2}
                                 />
 
                                 <Text htmlFor="priority-3">3</Text>
                                 <Radio
-                                    color="green"
+                                    color="white"
                                     id="priority-3"
                                     name="priority"
                                     type="radio"
                                     onChange={handleChange}
                                     value={3}
-                                    checked={formData.priority === 3}
+                                    checked={formData.priority == 3}
                                 />
 
                                 <Text htmlFor="priority-4">4</Text>
                                 <Radio
-                                    color="green"
+                                    color="white"
                                     id="priority-4"
                                     name="priority"
                                     type="radio"
                                     onChange={handleChange}
                                     value={4}
-                                    checked={formData.priority === 4}
+                                    checked={formData.priority == 4}
                                 />
 
                                 <Text htmlFor="priority-5">5</Text>
                                 <Radio
-                                    color="green"
+                                    color="white"
                                     id="priority-5"
                                     name="priority"
                                     type="radio"
                                     onChange={handleChange}
                                     value={5}
-                                    checked={formData.priority === 5}
+                                    checked={formData.priority == 5}
                                 />
                             </Box>
 
@@ -186,7 +205,7 @@ const TicketPage = () => {
 
                                     <Text mb="xs">Status</Text>
                                     <Select
-                                        color="green"
+                                        color="white"
                                         variant="outline"
                                         borderSize="sm"
                                         size="sm"
@@ -204,19 +223,21 @@ const TicketPage = () => {
                             }
 
                             <Input 
-                                color="green"
+                                color="white"
                                 variant="outline"
-                                borderSize="sm"
+                                borderSize="md"
                                 size="md"
                                 mb="sm" 
-                                type="submit" />
+                                type="submit"
+                                onClick={handleSubmit}
+                                />
 
                         </section>
 
                         <section>
                             <Text mb="xs" htmlFor="owner">Owner</Text>
                             <Input
-                                color="green"
+                                color="white"
                                 variant="outline"
                                 borderSize="sm"
                                 size="sm"
@@ -232,7 +253,7 @@ const TicketPage = () => {
 
                             <Text mb="xs" htmlFor="avatar">Avatar</Text>
                             <Input
-                                color="green"
+                                color="white"
                                 variant="outline"
                                 borderSize="sm"
                                 size="sm"
