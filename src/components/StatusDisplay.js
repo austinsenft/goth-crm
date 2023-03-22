@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Box, Text } from 'dracula-ui'
 
 const StatusDisplay = ({ status }) => {

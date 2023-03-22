@@ -1,4 +1,4 @@
-import React from 'react'
+
 import {  Box, Card} from 'dracula-ui'
 
 const ProgressDisplay = ({ progress }) => {

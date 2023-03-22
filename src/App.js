@@ -1,15 +1,20 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { useState } from 'react'
 import 'dracula-ui/styles/dracula-ui.css'
 import { Box } from 'dracula-ui'
 import Nav from './components/Nav'
 import Dashboard from './pages/Dashboard'
 import TicketPage from './pages/TicketPage'
+import CategoriesContext from './context'
 
 
 const App = () => {
-  return (
+    const [categories, setCategories] = useState(null)
+    const value = { categories, setCategories }
 
+  return (
     <Box className="app">
+      <CategoriesContext.Provider value={value}>
       <BrowserRouter>
         <Nav />
         <Routes>
@@ -18,7 +23,7 @@ const App = () => {
           <Route path='/ticket/:id' element={<TicketPage editMode={true} />} />
         </Routes>
       </BrowserRouter>
-    
+      </CategoriesContext.Provider>
     </Box>
   )
 }

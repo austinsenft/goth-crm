@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Avatar, Box, Button } from 'dracula-ui'
 import { useNavigate } from 'react-router-dom'
 

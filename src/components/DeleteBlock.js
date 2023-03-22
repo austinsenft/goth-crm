@@ -1,10 +1,13 @@
-import React from 'react'
+
 import {  Box } from 'dracula-ui'
+import axios from 'axios'
 
-const DeleteBlock = () => {
+const DeleteBlock = ({ documentId }) => {
 
-    const deleteTicket = () => {
-        console.log('deleted')
+    const deleteTicket = async () => {
+        const response = await axios.delete(`http://localhost:8000/tickets/${documentId}`)
+            const success = response.status == 200 
+            if (success) window.location.reload()
     }
 
     return (

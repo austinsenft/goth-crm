@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 import AvatarDisplay from "./AvatarDisplay"
 import StatusDisplay from "./StatusDisplay"
@@ -27,7 +27,7 @@ const TicketCard = ({ color, ticket }) => {
                 <PriorityDisplay priority={ticket.priority} />
                 <ProgressDisplay progress={ticket.progress} />
             </Link>
-            <DeleteBlock />
+            <DeleteBlock documentId={ticket.documentId} />
 
 
         </Box>

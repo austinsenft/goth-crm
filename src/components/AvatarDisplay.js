@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Box } from 'dracula-ui'
 import blankAvatar from '../images/avatar.png'
 

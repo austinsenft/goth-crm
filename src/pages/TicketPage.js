@@ -1,22 +1,34 @@
-import React from 'react'
 import { Box, Anchor, Input, Text, Divider, Select, Radio } from 'dracula-ui'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useContext, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import CategoriesContext from '../context'
 
-const TicketPage = () => {
+const TicketPage = ({editMode}) => {
     const [formData, setFormData] = useState({
         status: 'not started',
         progress: 0,
         timestamp: new Date().toISOString()
     })
-    const editMode = false 
-    // const editMode = true
+
+
+    const { categories, setCategories} = useContext(CategoriesContext)
 
     const navigate = useNavigate()
+    let {id} = useParams()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        if (editMode) {
+            const response = await axios.put(`http://localhost:8000/tickets/${id}`, {
+                data: formData
+            })
+        const success = response.status === 200
+        if (success) {
+            navigate('/')
+            }
+        }
 
         if (!editMode) {
             const response = await axios.post('http://localhost:8000/tickets', {
@@ -29,8 +41,14 @@ const TicketPage = () => {
         }
     }
 
+    const fetchData = async () => {
+        const response = await axios.get(`http://localhost:8000/tickets/${id}`)
+        setFormData(response.data.data)
+    }
 
-
+    useEffect(() => {
+        if (editMode) fetchData()
+    }, [])
 
 
     const handleChange = (e) => {
@@ -43,10 +61,6 @@ const TicketPage = () => {
         })
         )
     }
-
-    const categories = ['Test 1', 'Test 2']
-
-    console.log(formData)
 
     return (
         <Box className="ticket">
@@ -103,7 +117,7 @@ const TicketPage = () => {
                                 variant="outline" color="white" 
                                 mb="sm"
                                 name="category"
-                                value={formData.category}
+                                value={formData.category || categories[0]}
                                 onChange={handleChange}
                             >
                                 {categories?.map((category, _index) => (
@@ -125,7 +139,6 @@ const TicketPage = () => {
                                 name="category"
                                 type="text"
                                 onChange={handleChange}
-                                required={true}
                                 value={formData.category}
                             />
 
