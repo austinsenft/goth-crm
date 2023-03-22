@@ -5,14 +5,16 @@ import axios from 'axios'
 import CategoriesContext from '../context'
 
 const TicketPage = ({editMode}) => {
+    const { categories, setCategories} = useContext(CategoriesContext)
+
     const [formData, setFormData] = useState({
         status: 'not started',
         progress: 0,
+        category: categories[0],
         timestamp: new Date().toISOString()
     })
 
-
-    const { categories, setCategories} = useContext(CategoriesContext)
+    
 
     const navigate = useNavigate()
     let {id} = useParams()
